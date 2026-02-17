@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contagem de Dias de Chuva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <img class="watermark" src="logo.png" alt="" aria-hidden="true" />
+    <main class="page">
+      <header class="hero">
+        <h1>Contagem de dias de chuva</h1>
+      </header>
+
+      <section class="calendar-card">
+        <div class="calendar-header">
+          <button class="nav-btn" id="prevMonth" type="button" aria-label="Mês anterior">
+            ◀
+          </button>
+          <div class="month-title" id="monthTitle">&nbsp;</div>
+          <button class="nav-btn" id="nextMonth" type="button" aria-label="Próximo mês">
+            ▶
+          </button>
+        </div>
+
+        <div class="weekdays">
+          <span>Dom</span>
+          <span>Seg</span>
+          <span>Ter</span>
+          <span>Qua</span>
+          <span>Qui</span>
+          <span>Sex</span>
+          <span>Sab</span>
+        </div>
+
+        <div class="calendar-grid" id="calendarGrid"></div>
+
+        <div class="detail-panel" id="detailPanel" aria-live="polite">
+          <div class="detail-header">
+            <div>
+              <h2 id="detailDate">Selecione um dia</h2>
+              <p class="detail-hint">Manhã / Tarde</p>
+            </div>
+            <span class="detail-value" id="detailValue">0,0 dia</span>
+          </div>
+          <div class="toggle-row">
+            <button class="toggle" id="toggleMorning" type="button">Manhã</button>
+            <button class="toggle" id="toggleAfternoon" type="button">Tarde</button>
+            <button class="toggle ghost" id="toggleClear" type="button">Limpar</button>
+          </div>
+          <p class="detail-note" id="detailNote"></p>
+        </div>
+      </section>
+
+      <section class="totals">
+        <div class="totals-block">
+          <h3 id="monthlyTotalsTitle">Totais por mês</h3>
+          <div class="totals-list" id="monthlyTotals"></div>
+        </div>
+        <div class="totals-block">
+          <h3>Totais por ano</h3>
+          <div class="totals-list" id="yearlyTotals"></div>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button class="export-btn" id="exportPdfBtn" type="button">Gerar PDF</button>
+      </section>
+    </main>
+
+    <script>
+      window.SUPABASE_CONFIG = {
+        url: "https://kkqwjuvdyerqhcdauban.supabase.co",
+        anonKey: "sb_publishable_8zyshv1ZbgXWVnGzexOHIQ_bvJXiLc7"
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
